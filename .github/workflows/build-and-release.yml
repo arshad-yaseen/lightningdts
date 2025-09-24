@@ -380,7 +380,7 @@ jobs:
       - name: Publish
         continue-on-error: true
         run: |
-          bunx changelogithub
+          pnpm dlx changelogithub
           npm config set provenance true
           npm publish --access public
         env:
