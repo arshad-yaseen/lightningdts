@@ -73,7 +73,7 @@
 		"vitest": "^3.2.4"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "pnpm format && pnpm lint:fix && git add ."
+		"pre-commit": "pnpm lint"
 	},
 	"packageManager": "pnpm@10.17.0"
 }
