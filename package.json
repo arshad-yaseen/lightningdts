@@ -57,7 +57,7 @@
 		"test": "vitest",
 		"version": "napi version",
 		"release": "bumpp -r --commit --push --tag",
-		"prepare": "bun simple-git-hooks"
+		"prepare": "pnpm dlx simple-git-hooks"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.4",
