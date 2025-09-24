@@ -7,11 +7,11 @@ import {
 const handler = new MessageHandler({
 	onLoad({ wasmModule, wasmMemory }) {
 		const wasi = new WASI({
-			print: function () {
+			print: () => {
 				// eslint-disable-next-line no-console
 				console.log.apply(console, arguments)
 			},
-			printErr: function () {
+			printErr: () => {
 				// eslint-disable-next-line no-console
 				console.error.apply(console, arguments)
 			},
@@ -31,6 +31,6 @@ const handler = new MessageHandler({
 	},
 })
 
-globalThis.onmessage = function (e) {
+globalThis.onmessage = (e) => {
 	handler.handle(e)
 }

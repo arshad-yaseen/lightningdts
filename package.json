@@ -50,11 +50,12 @@
 		"artifacts": "napi artifacts",
 		"build": "napi build --platform --release",
 		"build:debug": "napi build --platform",
-		"format": "biome format . --write && cargo fmt",
-		"lint": "biome lint . && biome check .",
+		"format": "biome format --write . && cargo fmt",
+		"lint:fix": "biome check --write .",
 		"prepublishOnly": "napi prepublish -t npm",
 		"test": "vitest",
-		"version": "napi version"
+		"version": "napi version",
+		"prepare": "npx simple-git-hooks"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.4",
@@ -64,8 +65,12 @@
 		"@napi-rs/wasm-runtime": "^1.0.5",
 		"@tybys/wasm-util": "^0.10.1",
 		"emnapi": "^1.5.0",
+		"simple-git-hooks": "^2.13.1",
 		"typescript": "^5.9.2",
 		"vitest": "^3.2.4"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm format && pnpm lint:fix && git add ."
 	},
 	"packageManager": "pnpm@10.17.0"
 }

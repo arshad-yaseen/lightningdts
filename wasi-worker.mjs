@@ -22,10 +22,10 @@ Object.assign(globalThis, {
 	self: globalThis,
 	require,
 	Worker,
-	importScripts: function (f) {
+	importScripts: (f) => {
 		;(0, eval)(fs.readFileSync(f, 'utf8') + '//# sourceURL=' + f)
 	},
-	postMessage: function (msg) {
+	postMessage: (msg) => {
 		if (parentPort) {
 			parentPort.postMessage(msg)
 		}
@@ -62,6 +62,6 @@ const handler = new MessageHandler({
 	},
 })
 
-globalThis.onmessage = function (e) {
+globalThis.onmessage = (e) => {
 	handler.handle(e)
 }

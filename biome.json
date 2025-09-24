@@ -19,7 +19,8 @@
 					}
 				}
 			}
-		}
+		},
+		"includes": ["**", "!wasi-worker.mjs", "!wasi-worker-browser.mjs"]
 	},
 	"formatter": {
 		"enabled": true,
