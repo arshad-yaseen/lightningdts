@@ -51,10 +51,12 @@
 		"build": "napi build --platform --release",
 		"build:debug": "napi build --platform",
 		"format": "biome format --write . && cargo fmt",
+		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"prepublishOnly": "napi prepublish -t npm",
 		"test": "vitest",
 		"version": "napi version",
+		"release": "bumpp -r --commit --push --tag",
 		"prepare": "npx simple-git-hooks"
 	},
 	"devDependencies": {
@@ -64,6 +66,7 @@
 		"@napi-rs/cli": "^3.2.0",
 		"@napi-rs/wasm-runtime": "^1.0.5",
 		"@tybys/wasm-util": "^0.10.1",
+		"bumpp": "^10.2.3",
 		"emnapi": "^1.5.0",
 		"simple-git-hooks": "^2.13.1",
 		"typescript": "^5.9.2",
