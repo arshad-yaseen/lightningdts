@@ -20,7 +20,13 @@
 				}
 			}
 		},
-		"includes": ["**", "!wasi-worker.mjs", "!wasi-worker-browser.mjs"]
+		"includes": [
+			"**",
+			"!wasi-worker.mjs",
+			"!wasi-worker-browser.mjs",
+			"!index.js",
+			"!index.d.ts"
+		]
 	},
 	"formatter": {
 		"enabled": true,

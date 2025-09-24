@@ -194,8 +194,5 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-browser.js
-index.js
-index.d.ts
 lightningdts.wasi-browser.js
 lightningdts.wasi.cjs
