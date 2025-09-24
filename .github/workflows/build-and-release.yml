@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -93,6 +95,8 @@ jobs:
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -163,6 +167,8 @@ jobs:
     name: Build FreeBSD
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: Build
         id: build
         uses: cross-platform-actions/action@v0.29.0
@@ -228,6 +234,8 @@ jobs:
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -267,6 +275,8 @@ jobs:
     runs-on: ${{ contains(matrix.target, 'aarch64') && 'ubuntu-24.04-arm' || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
@@ -357,6 +367,8 @@ jobs:
       # - test-wasi
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup node
