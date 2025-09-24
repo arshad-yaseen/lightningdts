@@ -25,7 +25,9 @@
 			"!wasi-worker.mjs",
 			"!wasi-worker-browser.mjs",
 			"!index.js",
-			"!index.d.ts"
+			"!index.d.ts",
+			"lightningdts.wasi.cjs",
+			"lightningdts.wasi-browser.js"
 		]
 	},
 	"formatter": {
@@ -36,7 +38,9 @@
 			"!wasi-worker.mjs",
 			"!wasi-worker-browser.mjs",
 			"!index.js",
-			"!index.d.ts"
+			"!index.d.ts",
+			"lightningdts.wasi.cjs",
+			"lightningdts.wasi-browser.js"
 		]
 	},
 	"javascript": {
