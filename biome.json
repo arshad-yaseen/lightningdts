@@ -30,7 +30,14 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"useEditorconfig": true
+		"useEditorconfig": true,
+		"includes": [
+			"**",
+			"!wasi-worker.mjs",
+			"!wasi-worker-browser.mjs",
+			"!index.js",
+			"!index.d.ts"
+		]
 	},
 	"javascript": {
 		"formatter": {
