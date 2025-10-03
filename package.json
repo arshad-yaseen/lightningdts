@@ -54,7 +54,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"prepublishOnly": "napi prepublish -t npm",
-		"test": "vitest",
+		"test": "bun test",
 		"version": "napi version",
 		"release": "bumpp -r --commit --push --tag",
 		"prepare": "npx simple-git-hooks"
@@ -66,14 +66,13 @@
 		"@napi-rs/cli": "^3.2.0",
 		"@napi-rs/wasm-runtime": "^1.0.5",
 		"@tybys/wasm-util": "^0.10.1",
+		"@types/bun": "^1.2.23",
 		"bumpp": "^10.2.3",
 		"emnapi": "^1.5.0",
 		"simple-git-hooks": "^2.13.1",
-		"typescript": "^5.9.2",
-		"vitest": "^3.2.4"
+		"typescript": "^5.9.2"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "pnpm lint"
-	},
-	"packageManager": "pnpm@10.17.0"
+		"pre-commit": "bun lint"
+	}
 }

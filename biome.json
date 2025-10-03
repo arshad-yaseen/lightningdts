@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {
 		"enabled": true,
@@ -19,35 +19,28 @@
 					}
 				}
 			}
-		},
-		"includes": [
-			"**",
-			"!wasi-worker.mjs",
-			"!wasi-worker-browser.mjs",
-			"!index.js",
-			"!index.d.ts",
-			"!lightningdts.wasi.cjs",
-			"!lightningdts.wasi-browser.js"
-		]
+		}
 	},
 	"formatter": {
 		"enabled": true,
-		"useEditorconfig": true,
-		"includes": [
-			"**",
-			"!wasi-worker.mjs",
-			"!wasi-worker-browser.mjs",
-			"!index.js",
-			"!index.d.ts",
-			"!lightningdts.wasi.cjs",
-			"!lightningdts.wasi-browser.js"
-		]
+		"useEditorconfig": true
 	},
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "single",
 			"semicolons": "asNeeded"
 		}
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!wasi-worker.mjs",
+			"!wasi-worker-browser.mjs",
+			"!index.js",
+			"!index.d.ts",
+			"!lightningdts.wasi.cjs",
+			"!lightningdts.wasi-browser.js"
+		]
 	},
 	"vcs": {
 		"enabled": true,

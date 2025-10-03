@@ -22,13 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
       - name: Setup node
         uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: 'pnpm'
 
       - name: Install
         uses: dtolnay/rust-toolchain@stable
@@ -36,10 +35,10 @@ jobs:
           components: clippy, rustfmt
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Biome lint
-        run: pnpm lint
+        run: bun run lint
 
       - name: Cargo fmt
         run: cargo fmt -- --check
@@ -54,24 +53,24 @@ jobs:
         settings:
           - host: macos-latest
             target: aarch64-apple-darwin
-            build: pnpm build --target aarch64-apple-darwin
+            build: bun run build --target aarch64-apple-darwin
           - host: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            build: pnpm build --target x86_64-unknown-linux-gnu --use-napi-cross
+            build: bun run build --target x86_64-unknown-linux-gnu --use-napi-cross
           - host: windows-latest
-            build: pnpm build --target x86_64-pc-windows-msvc
+            build: bun run build --target x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
     name: test-build - ${{ matrix.settings.target }} - node@20
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v5
-      - name: setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
       - name: Setup node
         uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: pnpm
+
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -89,7 +88,7 @@ jobs:
             target/
           key: ${{ matrix.settings.target }}-cargo-${{ matrix.settings.host }}
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
       - name: Build
         run: ${{ matrix.settings.build }}
         shell: bash
@@ -122,16 +121,15 @@ jobs:
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v5
-      - name: setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
       - name: Setup node
         uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node }}
-          cache: pnpm
           architecture: ${{ matrix.settings.architecture }}
       - name: Install dependencies
-        run: pnpm install
+        run: bin install
       - name: Download artifacts
         uses: actions/download-artifact@v5
         with:
@@ -141,4 +139,4 @@ jobs:
         run: ls -R .
         shell: bash
       - name: Test bindings
-        run: pnpm test
+        run: bun test
