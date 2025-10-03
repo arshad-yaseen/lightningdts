@@ -129,7 +129,7 @@ jobs:
           node-version: ${{ matrix.node }}
           architecture: ${{ matrix.settings.architecture }}
       - name: Install dependencies
-        run: bin install
+        run: bun install
       - name: Download artifacts
         uses: actions/download-artifact@v5
         with:
