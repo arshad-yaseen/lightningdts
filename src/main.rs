@@ -22,15 +22,12 @@ fn main() -> std::io::Result<()> {
         return Ok(());
     }
 
-    println!("Original:\n");
-    println!("{source_text}\n");
-
     let id_ret =
         IsolatedDeclarations::new(&allocator, IsolatedDeclarationsOptions { strip_internal: true })
             .build(&ret.program);
 
     println!("Isolated Declarations AST:\n");
-    println!("{:#?}\n", id_ret.program);
+    println!("{:#?}\n", id_ret.program.body);
 
     if !id_ret.errors.is_empty() {
         println!("Transformed dts failed:\n");
